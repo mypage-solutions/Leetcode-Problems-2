@@ -116,7 +116,7 @@ public static boolean searchMatrix1(int[][] matrix, int target) {
   
 ## Project Status
 
-Project is: _in progress_.
+_In progress_.
 
 ## Contact
 

@@ -109,16 +109,26 @@ public static boolean searchMatrix1(int[][] matrix, int target) {
 #### Missing Number
 <a href="https://leetcode.com/problems/missing-number/submissions/"><em>Description</em></a>
 ```java
-public static int missingNumber(int[] nums) {
+public static int missingNumber1(int[] nums) {
+        int actualSum = 0;
+        int expectSum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            actualSum += nums[i];
+            expectSum += (i + 1);
+        }
+        return expectSum - actualSum;
+    }
+
+    public static int missingNumber2(int[] nums) {
         Arrays.sort(nums);
-        int start = 0;
+        int i = 0;
         if (nums[0] != 0) {
             return 0;
         }
-        while (start < nums.length - 1) {
-            start++;
-            if (nums[start] != start) {
-                return start;
+        while (i < nums.length - 1) {
+            i++;
+            if (nums[i] != i) {
+                return i;
             }
         }
         return nums[nums.length - 1] + 1;

@@ -73,16 +73,26 @@ public class LeetCodeProblems2 {
     }
 
     // 268. Missing Number
-    public static int missingNumber(int[] nums) {
+    public static int missingNumber1(int[] nums) {
+        int actualSum = 0;
+        int expectSum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            actualSum += nums[i];
+            expectSum += (i + 1);
+        }
+        return expectSum - actualSum;
+    }
+
+    public static int missingNumber2(int[] nums) {
         Arrays.sort(nums);
-        int start = 0;
+        int i = 0;
         if (nums[0] != 0) {
             return 0;
         }
-        while (start < nums.length - 1) {
-            start++;
-            if (nums[start] != start) {
-                return start;
+        while (i < nums.length - 1) {
+            i++;
+            if (nums[i] != i) {
+                return i;
             }
         }
         return nums[nums.length - 1] + 1;
@@ -97,6 +107,7 @@ public class LeetCodeProblems2 {
                 18, 21, 23, 26, 30}};
         System.out.println(searchMatrix1(matrix, 29));
         System.out.println(searchMatrix2(matrix, 29));
-        System.out.println(missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));
+        System.out.println(missingNumber1(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));
+        System.out.println(missingNumber2(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));
     }
 }

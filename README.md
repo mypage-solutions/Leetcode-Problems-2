@@ -114,7 +114,7 @@ public static int missingNumber1(int[] nums) {
         int expectSum = 0;
         for (int i = 0; i < nums.length; i++) {
             actualSum += nums[i];
-            expectSum += (i + 1);
+            expectSum += i + 1;
         }
         return expectSum - actualSum;
     }

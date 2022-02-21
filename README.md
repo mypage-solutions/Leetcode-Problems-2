@@ -42,8 +42,11 @@ public static long[] sumOfThree(long num) {
 <a href="https://leetcode.com/problems/contains-duplicate/"><em>Description</em></a>
 ```java
 public static boolean containsDuplicate1(int[] nums) {
-        Integer[] newNums = Arrays.stream(nums).boxed().toArray(Integer[]::new);
-        Set<Integer> set = new HashSet<>(Arrays.asList(newNums));
+        List<Integer> list = new ArrayList<>();
+        for (int num : nums) {
+            list.add(num);
+        }
+        Set<Integer> set = new HashSet<>(list);
         return set.size() < nums.length;
     }
 

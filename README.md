@@ -50,8 +50,9 @@ public static boolean containsDuplicate1(int[] nums) {
         Set<Integer> set = new HashSet<>(list);
         return set.size() < nums.length;
     }
-
-    public static boolean containsDuplicate2(int[] nums) {
+```
+```java
+public static boolean containsDuplicate2(int[] nums) {
         Integer[] newNums = Arrays.stream(nums).boxed().toArray(Integer[]::new);
         Set<Integer> set = new HashSet<>(Arrays.asList(newNums));
         return set.size() < nums.length;
@@ -92,8 +93,9 @@ public static boolean searchMatrix1(int[][] matrix, int target) {
         }
         return false;
     }
-
-    public static boolean searchMatrix2(int[][] matrix, int target) {
+```
+```java
+public static boolean searchMatrix2(int[][] matrix, int target) {
         for (int i = matrix.length - 1; i >= 0; i--)
             for (int j = 0; j < matrix[0].length; j++) {
                 if (matrix[i][j] == target)
@@ -118,8 +120,9 @@ public static int missingNumber1(int[] nums) {
         }
         return expectSum - actualSum;
     }
-
-    public static int missingNumber2(int[] nums) {
+```
+```java
+public static int missingNumber2(int[] nums) {
         Arrays.sort(nums);
         int i = 0;
         if (nums[0] != 0) {

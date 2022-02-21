@@ -18,6 +18,7 @@
 2. [Contains Duplicate](#contains-duplicate)
 3. [Median of Two Sorted Arrays](#median-of-two-sorted-arrays)
 4. [Search a 2D Matrix](#search-a-2d-matrix)
+5. [Missing Number](#missing-number)
 
 <br>
 
@@ -101,6 +102,26 @@ public static boolean searchMatrix1(int[][] matrix, int target) {
                     break;
             }
         return false;
+    }
+```
+<br>
+
+#### Missing Number
+<a href="https://leetcode.com/problems/missing-number/submissions/"><em>Description</em></a>
+```java
+public static int missingNumber(int[] nums) {
+        Arrays.sort(nums);
+        int start = 0;
+        if (nums[0] != 0) {
+            return 0;
+        }
+        while (start < nums.length - 1) {
+            start++;
+            if (nums[start] != start) {
+                return start;
+            }
+        }
+        return nums[nums.length - 1] + 1;
     }
 ```
 <br>

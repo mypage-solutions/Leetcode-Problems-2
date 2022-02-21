@@ -72,6 +72,22 @@ public class LeetCodeProblems2 {
         return false;
     }
 
+    // 268. Missing Number
+    public static int missingNumber(int[] nums) {
+        Arrays.sort(nums);
+        int start = 0;
+        if (nums[0] != 0) {
+            return 0;
+        }
+        while (start < nums.length - 1) {
+            start++;
+            if (nums[start] != start) {
+                return start;
+            }
+        }
+        return nums[nums.length - 1] + 1;
+    }
+
     public static void main(String[] args) {
         System.out.println(Arrays.toString(sumOfThree(33)));
         System.out.println(containsDuplicate1(new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2}));
@@ -81,5 +97,6 @@ public class LeetCodeProblems2 {
                 18, 21, 23, 26, 30}};
         System.out.println(searchMatrix1(matrix, 29));
         System.out.println(searchMatrix2(matrix, 29));
+        System.out.println(missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));
     }
 }
